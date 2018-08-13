@@ -1,6 +1,5 @@
 var crypto = require('crypto');
 var aesjs = require('aes-js');
-// var MCrypt = require('mcrypt').MCrypt;
 var etext = 'tHL92o65fQlhcxBcRbAIEW2zAvRj0NzB1xuITZb/auBE8F19K1picaLjABeAEsqX';
 var skey = 'a92463241A2C438f94G17bF91V668mC4';
 
@@ -26,21 +25,6 @@ function getSha1Hash(key) {
 function getMD5Hash(key) {
 	return new Buffer(crypto.createHash('md5').update(key).digest('hex'));
 }
-// function decrypt(ciphertext, key) {
-// 	var mdKey = new Buffer(getMD5Hash(key)); // passed
-// 	var newKey = new Buffer(getMD5Hash1(key)); // passed
-// 	console.log(aesjs.utils.utf8.fromBytes(newKey));
-// 	var converted = Buffer.from(ciphertext, 'base64');
-// 	// console.log(converted);
-// 	var dataBytes = removeCipherNoise(converted, mdKey); // passed
-// 	// console.log(dataBytes.length);
-// 	var iv = new Buffer(dataBytes.slice(0, 16)); // passed
-// 	dataBytes = dataBytes.slice(16); // passed
-// 	// console.log(dataBytes);
-// 	var decryptor = crypto.createDecipheriv('aes-128-cbc', newKey, iv);
-// 	return decryptor.update(ciphertext, 'base64', 'utf8') + decryptor.final('utf8');
-// }
-// console.log(decrypt(etext, skey)); // this should output 'this is plain text'
 
 function decryptbyaesjs(ciphertext, key)
 {
